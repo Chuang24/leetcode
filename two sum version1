@@ -1,0 +1,24 @@
+vector<int> twoSum(vector<int>& nums, int target) {
+		//Given an array and a target number, 
+		//the goal is to find the index of two numbers that 
+		//add up to the target. 
+		//Assuming there is only 1 pair of this number 
+
+		
+		vector<int> result;
+		std::unordered_map<int,int> umap;
+		for (auto i = 0; i < nums.size(); i++) {
+			umap.insert(std::make_pair(i,target - nums[i]));
+		}
+		for (auto i = 0; i < nums.size();i++) {
+		
+			if (umap.find(nums[i]) != umap.end()) {
+				int a = umap[nums[i]];
+				cout << "The error is here, i: " << i << "  " << nums[i] << "   " << a<<"   " <<umap[nums[i]]<<std::endl;
+				result.push_back(i);
+				result.push_back(a);
+				break;
+			}
+		}
+		return result;
+	}
