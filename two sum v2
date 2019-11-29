@@ -1,0 +1,15 @@
+vector<int> twoSum2(vector<int>& nums, int target) {
+		// use one for loop and 2 pass 
+		std::unordered_map<int, int> list;
+		for (auto i = 0; i < nums.size();i++) {
+			//Find if the number is in hash table 
+			//if not add it in the hash table 
+			if (list.find(nums[i])!=list.end()) {
+			   vector<int> result = { i,list[nums[i]] };
+			   return result;
+			}
+			else {
+				list[target-nums[i]] = i;
+			}
+		}
+	}
